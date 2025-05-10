@@ -3,9 +3,10 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  // production: false
+   production: true,
   url:process.env['NG_APP_BASE_URL']
 };
+
 
 /*
  * For easier debugging in development mode, you can import the following file
