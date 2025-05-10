@@ -11,7 +11,7 @@
       "prefix": "app",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:browser",
+          "builder": "@ngx-env/builder:browser",
           "options": {
             "outputPath": "dist/test3",
             "index": "src/index.html",
@@ -19,6 +19,7 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
             "assets": [
+              "src/_redirects",
               "src/favicon.ico",
               "src/assets"
             ],
@@ -61,7 +62,7 @@
           "defaultConfiguration": "production"
         },
         "serve": {
-          "builder": "@angular-devkit/build-angular:dev-server",
+          "builder": "@ngx-env/builder:dev-server",
           "configurations": {
             "production": {
               "browserTarget": "TEST3:build:production"
@@ -70,16 +71,17 @@
               "browserTarget": "TEST3:build:development"
             }
           },
-          "defaultConfiguration": "development"
+          "defaultConfiguration": "development",
+          "options": {}
         },
         "extract-i18n": {
-          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "builder": "@ngx-env/builder:extract-i18n",
           "options": {
             "browserTarget": "TEST3:build"
           }
         },
         "test": {
-          "builder": "@angular-devkit/build-angular:karma",
+          "builder": "@ngx-env/builder:karma",
           "options": {
             "main": "src/test.ts",
             "polyfills": "src/polyfills.ts",
@@ -92,7 +94,8 @@
             "styles": [
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [],
+            "builderMode": "browser"
           }
         }
       }
